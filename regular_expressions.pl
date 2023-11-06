@@ -8,7 +8,10 @@ sub main {
     open(INPUT, $file) or die("input file $file not found.\n");
 
     while(my $line = <INPUT>){
-        print $line
+        if($line =~/ fire /){
+            print $line
+
+        }
 
     }
 
