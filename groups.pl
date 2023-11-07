@@ -10,9 +10,7 @@ sub main {
     while(my $line = <INPUT>){
         if($line =~/(I..a.)(...)/){
             print "$1$2\n";
-
         }
-
     }
 
     close(INPUT); 
