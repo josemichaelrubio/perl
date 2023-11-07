@@ -7,9 +7,8 @@ sub main {
     open(INPUT, $file) or die("input file $file not found.\n");
 
     while(my $line = <INPUT>){
-        if($line =~/ fire /){
-            print $line
-
+        if($line =~/(l+)/){
+            print "$1\n"
         }
 
     }
