@@ -12,7 +12,11 @@ sub main {
     open(OUTPUT, '>'.$output) or die "Can't create $output.\n";
 
     while(my $line = <INPUT>){
-        if($line =~/ \bfire\b /){
+
+        
+
+        if($line =~/\bfire\b/){
+            $line =~ s/\byou\b/YOU/ig;
             print OUTPUT $line;
 
         }
