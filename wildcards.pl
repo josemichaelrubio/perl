@@ -3,6 +3,18 @@ use warnings;
 $|=1;
 
 sub main {
-    print "Hello World";
+    my $file = '/Users/josemichaelrubio/Programs/perl/projects/inferno.txt';
+
+    open(INPUT, $file) or die("input file $file not found.\n");
+
+    while(my $line = <INPUT>){
+        if($line =~/ fire /){
+            print $line
+
+        }
+
+    }
+
+    close(INPUT); 
 }
 main();
