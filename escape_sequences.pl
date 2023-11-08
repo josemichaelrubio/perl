@@ -8,9 +8,9 @@ sub main {
     # \S non-space
     # \w alphanumeric
 
-    my $text = 'I am 30 years old';
+    my $text = 'I_am_30_years_old.......';
 
-    if($text=~ /(y\S*)/){
+    if($text=~ /(\w*)/){
         print("Matched: '$1'\n");
     }
 }
