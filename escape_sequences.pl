@@ -10,7 +10,7 @@ sub main {
 
     my $text = 'I am 30 years old';
 
-    if($text=~ /(am\s\d+)/){
+    if($text=~ /(y\S*)/){
         print("Matched: '$1'\n");
     }
 }
