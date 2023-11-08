@@ -3,6 +3,15 @@ use warnings;
 $|=1;
 
 sub main {
-    print "Hello World";
+    # \d match any single digit
+    # \s space
+    # \S non-space
+    # \w alphanumeric
+
+    my $text = 'I am 30 years old';
+
+    if($text=~ /(am\s\d+)/){
+        print("Matched: '$1'\n");
+    }
 }
 main();
