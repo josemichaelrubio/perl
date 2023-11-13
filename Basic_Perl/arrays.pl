@@ -2,7 +2,7 @@ use strict;
 use warnings;
 $|=1;
 
-sub main{
+sub main {
 
     my @files = (
         '/Users/josemichaelrubio/Programs/perl/projects/robot.png',
