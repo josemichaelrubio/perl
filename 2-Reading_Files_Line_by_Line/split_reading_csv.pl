@@ -15,9 +15,11 @@ sub main {
   unless(open(INPUT, $input)){
     die "\n Cannot open $input\n";
   }
+  <INPUT>;
 
-  while(<INPUT>){
-    print $_
+  while(my $line = <INPUT>){
+    my @values= split(',',$line);
+    print "$values[0]\n";
   }
 
   close(INPUT);
