@@ -1,5 +1,6 @@
 =begin comment
-
+Task 4:
+	• Only match two alphanumeric and four digits
 =end comment
 
 =cut
