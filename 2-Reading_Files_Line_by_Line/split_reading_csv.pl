@@ -1,3 +1,9 @@
+=begin comment
+
+=end comment
+
+=cut
+
 use strict;
 use warnings;
 
