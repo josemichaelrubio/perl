@@ -6,6 +6,7 @@
 
 use strict;
 use warnings;
+use Data::Dumper;
 
 $|=1;
 
@@ -18,10 +19,12 @@ sub main {
   <INPUT>;
 
   while(my $line = <INPUT>){
-    my @values= split(',',$line);
-    print "$values[0]\n";
 
-    print join '|', @values;
+    my @values= split ',', $line;
+
+    # print join '|', @values;
+
+    print Dumper(@values);
   }
 
   close(INPUT);
