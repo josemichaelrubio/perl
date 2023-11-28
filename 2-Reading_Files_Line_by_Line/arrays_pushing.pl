@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 
-use Data::Dumper;
+#use Data::Dumper;
 
 $|=1;
 
@@ -21,16 +21,14 @@ sub main {
 
   my @lines;
 
-  my $count = 0;
-
   while(my $line = <INPUT>){
     chomp $line;
     #print "'$line'\n";
     my @values= split(/\s*,\s*/,$line);
     #print "$values[0]\n";
     #print Dumper(@values);
-    $lines[$count] = $line;
-    $count ++;
+
+    push @lines, $line;
   }
 
    close(INPUT);
