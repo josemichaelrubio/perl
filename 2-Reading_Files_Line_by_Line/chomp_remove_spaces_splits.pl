@@ -7,6 +7,8 @@
 use strict;
 use warnings;
 
+use Data::Dumper;
+
 $|=1;
 
 sub main {
@@ -19,7 +21,8 @@ sub main {
 
   while(my $line = <INPUT>){
     my @values= split(',',$line);
-    print "$values[0]\n";
+    #print "$values[0]\n";
+    print Dumper(@values);
   }
 
   close(INPUT);
