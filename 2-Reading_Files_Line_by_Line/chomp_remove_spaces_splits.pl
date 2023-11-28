@@ -20,7 +20,9 @@ sub main {
   <INPUT>;
 
   while(my $line = <INPUT>){
-    my @values= split(',',$line);
+    chomp $line;
+    #print "'$line'\n";
+    my @values= split(/,/,$line);
     #print "$values[0]\n";
     print Dumper(@values);
   }
