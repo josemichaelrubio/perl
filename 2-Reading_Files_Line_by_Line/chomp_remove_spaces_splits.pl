@@ -22,7 +22,7 @@ sub main {
   while(my $line = <INPUT>){
     chomp $line;
     #print "'$line'\n";
-    my @values= split(/,/,$line);
+    my @values= split(/\s*,\s*/,$line);
     #print "$values[0]\n";
     print Dumper(@values);
   }
