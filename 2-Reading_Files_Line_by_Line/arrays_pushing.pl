@@ -19,15 +19,25 @@ sub main {
   }
   <INPUT>;
 
+  my @lines;
+
+  my $count = 0;
+
   while(my $line = <INPUT>){
     chomp $line;
     #print "'$line'\n";
     my @values= split(/\s*,\s*/,$line);
     #print "$values[0]\n";
-    print Dumper(@values);
+    #print Dumper(@values);
+    $lines[$count] = $line;
+    $count ++;
   }
 
-  close(INPUT);
+   close(INPUT);
+
+  foreach my $line(@lines){
+    print $line . "\n";
+  }
 }
 
 main();
