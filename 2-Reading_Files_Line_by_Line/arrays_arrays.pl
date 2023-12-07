@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-#use Data::Dumper;
+use Data::Dumper;
 
 $|=1;
 
@@ -22,13 +22,18 @@ sub main {
     #print "$values[0]\n";
     #print Dumper(@values);
 
-    push @lines, $line;
+    
+
+    push @lines, \@values;
   }
 
    close(INPUT);
 
+   print $lines[0][0];
+
   foreach my $line(@lines){
-    print $line . "\n";
+    print Dumper($line); 
+    print "Name " . $line->[0] . "\n";
   }
 }
 
