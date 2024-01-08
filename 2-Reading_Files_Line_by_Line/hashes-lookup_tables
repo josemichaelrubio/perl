@@ -10,6 +10,31 @@ use warnings;
 $|=1;
 
 sub main {
-    print "Hello World";
+
+    my %months = (
+        "Jan" => 1,
+        "Feb" => 2,
+        "Dec" => 12,
+        "Mar" => 3,
+    );
+
+    print $months{"Mar"} . "\n";
+
+    my %days = (
+        1=> "Monday",
+    )
+
+    #iterate over
+    my @months = keys %months;
+
+    foreach my $month(@months){
+        my $value = $months{$month};
+        print "$month: $value\n";
+    }
+    #another way to iterate ovet
+    while( my ($key, $value) = each %days){
+        print "$key: $value\n";
+    }
+    
 }
 main();
