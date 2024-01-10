@@ -10,6 +10,6 @@ use warnings;
 $|=1;
 
 sub main {
-    print "Hello World";
+    print "Hello World\n";
 }
 main();
