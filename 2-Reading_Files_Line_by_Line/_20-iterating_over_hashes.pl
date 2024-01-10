@@ -1,5 +1,18 @@
 =begin comment
+Iterating over Hashes
 
+Hashes are not ordered
+
+each
+	• a subroutine that returns an array per iteration. the arrays contain one key/value pair.
+keys
+	• a subroutine that collects all the keys at once. slow but helps sort a hash
+	• sort
+		○ a key word to sort the keys
+
+You can declare an array in a subroutine in perl
+
+In perl, for is short for foreach 
 =end comment
 
 =cut
