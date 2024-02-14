@@ -13,17 +13,16 @@ sub main {
 
     my $input = "test.csv" ;
 
-    unless(open(INPUT, $input)){
-        die "\ncannot open: $input\n"
-    };
-
-    <INPUT>;
-
-    print INPUT;
+    open INPUT, $input or die "\nCan't open $input\n";
 
     while (my $line= <INPUT>){
+
+        chomp $line;
+
         print "$line\n";
     }
+
+    close INPUT;
 
 }
 
