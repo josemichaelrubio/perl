@@ -1,8 +1,10 @@
 =begin comment
 Get each line of the file and corrspond it to the appropiate field
+    So I need a hash
 Skip blank lines
 Skip header lines
 Skip spaces
+    So I need replace with s///
 =end comment
 
 =cut
@@ -22,7 +24,15 @@ sub main {
 
         chomp $line;
 
-        print "$line\n";
+        my ($name, $payment, $date) = split /\s*,\s*/, $line;
+
+        my %values = (
+            "Name" => $name,
+            "Payment" => $payment,
+            "Date" => $date,
+        );
+
+        push @data, \%values;
     }
 
     close INPUT;
