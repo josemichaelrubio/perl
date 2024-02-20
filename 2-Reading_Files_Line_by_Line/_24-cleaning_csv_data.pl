@@ -72,6 +72,7 @@ sub main {
 
         chomp $line;
 
+        #ANY space after the `split` and between / / changes everything
         my @values = split /\s*,\s*/, $line;
 
         if(scalar(@values) < 3){
