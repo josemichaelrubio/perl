@@ -1,10 +1,8 @@
 =begin comment
 Get each line of the file and corrspond it to the appropiate field
-    So I need a hash
 Skip blank lines
 Skip header lines
 Skip spaces
-    So I need replace with s///
 =end comment
 
 =cut
@@ -20,11 +18,33 @@ sub main {
 
     open INPUT, $input or die "\nCan't open $input\n";
 
-    while (my $line= <INPUT>){
+    my @data;
+
+    LINE: while (my $line= <INPUT>){
+
+        $line =~ s/^\s*|\s*$//g;
+
+        $line =~ s/\?|approx\.|\$//g;
+
+        $line =~ /\S+/ or next;
 
         chomp $line;
 
-        my ($name, $payment, $date) = split /\s*,\s*/, $line;
+        my @values = split /\s*,\s*/, $line;
+
+        if(scalar(@values) < 3 ){
+            print "Invalid line: $line\n";
+            next LINE;
+        }
+
+        for my $value(@values){
+            if($value eq ''){
+                print "Invalid line: $line\n";
+                next LINE;
+            }
+        }
+
+        my ($name, $payment, $date) = @values;
 
         my %values = (
             "Name" => $name,
@@ -36,6 +56,10 @@ sub main {
     }
 
     close INPUT;
+
+    for my $data(@data){
+        print $data -> {"Payment"} . "\n";
+    };
 
 }
 
