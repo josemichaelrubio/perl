@@ -50,6 +50,7 @@ sub main {
         die "\nCannot open $input\n";
     };
 
+    # Gets rid the header line by reading it
     <INPUT>;
 
     my @data;
@@ -67,12 +68,15 @@ sub main {
         $line =~ s/^\s*|\s*$//g;
         # Here we are getting rid of unwanted characters within values
         $line =~ s/\?|approx\.|\$//g;
-
+        # Gets rid of blank lines within the cvs
         $line =~ /\S+/ or next; 
 
+        # Gets rid of a any new line
         chomp $line;
 
         #ANY space after the `split` and between / / changes everything
+        #Gets rid of any spaces inside of the commas
+        # splits the line
         my @values = split /\s*,\s*/, $line;
 
         if(scalar(@values) < 3){
@@ -87,6 +91,7 @@ sub main {
             }
         }
 
+        # Gets the line into variables
         my ($name, $payment, $date) = @values;
 
         my %values = (
