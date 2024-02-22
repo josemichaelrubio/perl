@@ -13,34 +13,48 @@ $|=1;
 
 sub main {
 
-    # saves the csv file into a scalar called $input
     my $input = "test.csv" ;
 
-    # opens $input and saves it to INPUT that can be Opened 
     open INPUT, $input or die "\nCan't open $input\n";
 
-    # Reads the header and gets rid of it
+
     <INPUT>;
 
-    while (my $line= <INPUT>){
+    # LINE indicates where the enclosed next statements iterate again
+    LINE: while (my $line= <INPUT>){
 
-        # Gets rid of a any new line
         chomp $line;
-        # Gets rid of blank lines within the cvs
         $line =~ /\S+/ or next;
-        # Gets rid of spaces upfront and at the end through the use of `| and `g`
         $line =~ s/^\s*|\s*$//g;
-        
-        # gets the line into variables by spliting the line on their commas , 
-        my ($name, $payment, $date) = split /\s*,\s*/, $line;
 
-        # Checking if we managed to split the into their variables
+        # We split the lines and place them as seperate variables in an @values array
+        my @values = split /\s*,\s*/, $line;
+
+        # If a line contains less than 3 variables,-- 
+        if(@values < 3){
+            # --then `next LINE` will skip the current line-- 
+            next LINE;
+            # --and restart the iteration from `LINE:`
+        }
+
+        # Iterates over each line containing variables
+        foreach my $value(@values){
+            # If a line contains an empty string variable,--
+            if($value eq ''){
+                # --then `next LINE` will skip the current line-- 
+                next LINE;
+                # --and restart the iteration from `LINE:`
+            }
+            # ---Which is outside the Loop!
+        }
+
+        # Now we store the seperated, massaged, and valid values from @values array into scalar variables)
+        my ($name, $payment, $date) = @values;
+
         print "$name: $payment, $date\n";
-        # using the '' to see what the line consists of
-        print "'$line'\n";
+
     }
 
-    # closes file
     close INPUT;
 
 }
