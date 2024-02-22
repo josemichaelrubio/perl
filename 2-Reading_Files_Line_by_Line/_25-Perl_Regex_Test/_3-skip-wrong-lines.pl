@@ -27,8 +27,9 @@ sub main {
         $line =~ /\S+/ or next;
         $line =~ s/^\s*|\s*$//g;
 
-        # We split the lines and place them as seperate variables in an @values array
+        # Within each line, We split it into seperate values-- 
         my @values = split /\s*,\s*/, $line;
+        # --then them into the @values array
 
         # If a line contains less than 3 variables,-- 
         if(@values < 3){
@@ -48,7 +49,7 @@ sub main {
             # ---Which is outside the Loop!
         }
 
-        # Now we store the seperated, massaged, and valid values from @values array into scalar variables)
+        # Now we store the massaged, split, and valid values of each line from @values array into scalar variables)
         my ($name, $payment, $date) = @values;
 
         print "$name: $payment, $date\n";
