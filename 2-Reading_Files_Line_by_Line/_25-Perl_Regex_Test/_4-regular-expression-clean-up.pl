@@ -27,6 +27,8 @@ sub main {
         chomp $line;
         $line =~ /\S+/ or next;
         $line =~ s/^\s*|\s*$//g;
+        # The regular expression that cleans the line with expected unwanted characters
+        $line =~ s/\?|approx\.\s|\$//g;
 
         my @values = split /\s*,\s*/, $line;
 
