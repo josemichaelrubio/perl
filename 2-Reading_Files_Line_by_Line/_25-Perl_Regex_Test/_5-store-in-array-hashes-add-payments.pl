@@ -65,12 +65,16 @@ sub main {
     close INPUT;
     # We place this print after closing since we are done with the file.
 
+    # So we can see if we have correct data before doing any arithmetics on it.
     print Dumper(@data);    
 
-    #my $total = 0;
-    #for my $data(@data){
-    #    $total += $data{"Payment"};
-    #};
+    # Now we can iterate through the array of hashes and add up the payments for each person and print the total.
+    my $total = 0;
+    foreach my $data(@data){
+        # We use the arrow operator `->` to access the hash values since $data is a reference to a hash
+        $total += $data->{"Payment"};
+    }
+    print "Total payments: $total\n";
 
 }
 
