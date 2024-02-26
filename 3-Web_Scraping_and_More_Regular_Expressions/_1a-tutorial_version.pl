@@ -24,6 +24,20 @@ sub main {
         die("Can't get the content");
     }
 
+    # Somethings the connent contains / thus we cannot use / to define the regular expression
+    # m'' use m then single quotes to tell perl that we are using a regular expression
+    # now within m'' we use () to define what we want to match
+    if($content =~ m'<p class="site-description">(.+?)</p>'i) {
+        # $1 is the first match
+        print "The site description is: $1\n";
+    } else {
+        print "Site description not found\n";
+    }
+    # i is for case insensitive, so it doesn't matter if it is upper or lower case
+    # note that if there is an href, that will also change, thus we need to use .+? too
+
+    #print $content;
+
 }
 
 main();
