@@ -1,5 +1,20 @@
 =begin comment
+If you are going to do a lot of web scrapping, use a pre-built model
+Web::Scraper - Web Scraping Toolkit using HTML and CSS Selectors or XPath expressions - metacpan.org
+However it is not needed, you can web scrap by using regular expressions
 
+Note: Web scraping will not work for every website because of  JavaScript, embedded flash, or Unicode (HTML). All of that cannot be handled in Perl immediately, we have to use a web scraping module. 
+
+We’re going pick out bits of a page then download them.
+
+Pick out the catch line: with love & sincerity 
+However, it can change. Thus, we want to "scrape" it, pull down whatever value happened to be in the catch line
+
+… Wow did I have to do a work around
+… my code is completely different than the tutorial
+
+Installing cpan Mozilla::CA solved the original solution too!!
+`sudo cpan Mozilla::CA` for macOS
 =end comment
 
 =cut
@@ -33,7 +48,7 @@ sub main {
 ##**     $ua->ssl_opts(verify_hostname => 0, SSL_verify_mode => 0x00);
     ## **NOTE: that this is not recommended for production code.
     ##
-_
+
     my $response = $ua->get("https://josemichaelrubio.com/");
 
     # is_success method returns true if the request was successful
@@ -43,7 +58,7 @@ _
     }
 
     my $content = $response->decoded_content;
-
+    
 }
 
 main();
