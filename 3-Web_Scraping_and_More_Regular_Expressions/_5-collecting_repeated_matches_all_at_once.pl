@@ -1,5 +1,11 @@
 =begin comment
+How to gather multiple results within a singular regular expression
 
+Use regular expression in an array context
+
+quicker way to do it
+great for smaller documents
+however, it stores the memory all at once, thus inefficient with memory
 =end comment
 
 =cut
