@@ -37,9 +37,11 @@ sub main {
     my $content = $response->decoded_content;
     
     # Creating a regular expression that can match something repeatedly
-    # m is for match, s is for treat new lines as a regualt character, i is for case insensitive
-    # sig is useful for large documents
-    while($content =~ m|<\s*a\s+[^>]*href\s*=\s*['"]([^>"']+)['"][^>]*>\s*([^<>]*)\s*</|sig){
+    # m is for match, s is for treat new lines as a regualt character, i is for case insensitive, x for allowing spaces and new lines
+    # sigx is useful for large documents
+    while($content =~ m|<\s*a\s+[^>]*href\s*=\s*['"]
+    ([^>"']+)['"][^>]*>\s*
+    ([^<>]*)\s*</|sig){
         print "$2: $1\n"
     }
     
