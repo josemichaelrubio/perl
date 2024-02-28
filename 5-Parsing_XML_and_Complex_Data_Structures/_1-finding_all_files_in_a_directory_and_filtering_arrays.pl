@@ -22,25 +22,31 @@ sub main {
 		usage();
 		exit();
 	} 
-	
+
 	my $input_dir = $opts{"d"};
 
 	my @files = get_files($input_dir);
 	
+    # In Dumper, getting a reference to the array is neater than getting the array itself.
 	print Dumper(\@files);
 }
 
 sub get_files {
 	my $input_dir = shift;
 	
+    # opendir opens a directory and returns a reference to a directory handle.
+    # first argument is a reference to a directory handle
 	unless(opendir(INPUTDIR, $input_dir)) {
 		die "\nUnable to open directory '$input_dir'\n";
 	}
 	
+	#readdir returns a list of all the files in the directory
 	my @files = readdir(INPUTDIR);
 	
+    # close the directory handle
 	closedir(INPUTDIR);
 	
+	# grep returns a list of all the elements in the array that match the condition
 	@files = grep(/\.xml$/i, @files);
 	
 	return @files;
