@@ -1,5 +1,7 @@
 =begin comment
-
+Checking Values in Hashes
+-------------------------
+Use a built in subroutine in Perl called `exist` to see if values exist in a hash
 =end comment
 =cut
 
