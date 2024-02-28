@@ -1,6 +1,0 @@
-<root>
-  <element attribute="value">Content</element>
-  <nested>
-    <child>Child Content</child>
-  </nested>
-</root>

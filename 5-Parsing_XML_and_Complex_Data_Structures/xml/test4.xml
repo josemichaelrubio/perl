@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bands>
+  <band>
+    <name>Metallica</name>
+    <genre>Heavy Metal</genre>
+    <yearFormed>1981</yearFormed>
+    <members>
+      <member>James Hetfield</member>
+      <member>Kirk Hammett</member>
+      <member>Robert Trujillo</member>
+      <member>Lars Ulrich</member>
+    </members>
+  </band>
+  <band>
+    <name>Queen</name>
+    <genre>Rock</genre>
+    <yearFormed>1970</yearFormed>
+    <members>
+      <member>Freddie Mercury</member>
+      <member>Brian May</member>
+      <member>John Deacon</member>
+      <member>Roger Taylor</member>
+    </members>
+  </band>
+  <band>
+    <name>The Beatles</name>
+    <genre>Rock</genre>
+    <yearFormed>1960</yearFormed>
+    <members>
+      <member>John Lennon</member>
+      <member>Paul McCartney</member>
+      <member>George Harrison</member>
+      <member>Ringo Starr</member>
+    </members>
+  </band>
+</bands>
