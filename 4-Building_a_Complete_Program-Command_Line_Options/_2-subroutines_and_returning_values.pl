@@ -1,5 +1,10 @@
 =begin comment
-
+Subroutines and Returning Values
+--------------------------------
+In Perl, you don't have to define the return type in a subroutine
+there is no boolean in Perl
+	• use 0 for false
+use 1 for true
 =end comment
 
 =cut
@@ -26,7 +31,7 @@ sub main {
 }
 
 sub checkusage{
-    return 1;
+    return 0;
 }
 
 sub usage{
