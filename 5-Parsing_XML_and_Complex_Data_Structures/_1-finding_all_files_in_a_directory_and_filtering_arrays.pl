@@ -1,3 +1,22 @@
+=begin comment
+Finding all files in a Directory and filtering Arrays
+----------------------------------------------------
+Filter an array with built in subroutine: grep
+
+Make main program light weight, only a few descriptive functions in main, then all then all the details in subroutines.
+we can use
+
+In Perl, there is no convention on naming. 
+
+In Perl, if you don't have a return statement, it will return the last thing you typed in the subroutine
+
+Many ways to get files in a directory
+	• use a module
+	• opendir…. readdir…closedir
+etc
+=end comment
+=cut
+
 use strict;
 use warnings;
 use Data::Dumper;
@@ -39,10 +58,8 @@ sub get_files {
 	unless(opendir(INPUTDIR, $input_dir)) {
 		die "\nUnable to open directory '$input_dir'\n";
 	}
-	
 	#readdir returns a list of all the files in the directory
 	my @files = readdir(INPUTDIR);
-	
     # close the directory handle
 	closedir(INPUTDIR);
 	
