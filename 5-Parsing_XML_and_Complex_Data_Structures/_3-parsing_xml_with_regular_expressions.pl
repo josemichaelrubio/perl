@@ -1,5 +1,18 @@
 =begin comment
+Parsing XML with Regular Expressions
+-------------------------------------
+Set a record separator in order to read a file chuck by chunk
+	• Since we are dealing with XML, want to use read from open tag to close tag, one entry at a time
+Record separator: `$/`
+	• by default it is a new line
+	• It is global, thus, if try to use it again, it will use the default or its latest value
 
+Two ways of dealing with xml: 
+	• Manual 
+	• Modules
+
+This portion is manual because it is more flexible and applied to any kind of file
+This is great for massive xml files, using modules is slower.
 =end comment
 =cut
 
