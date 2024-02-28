@@ -1,3 +1,10 @@
+=begin comment
+We want to take that hash and turn it into a scalar value then pass it to the subroutine 
+->
+Same technique can be used with arrays
+=end comment
+=cut
+
 use strict;
 use warnings;
 
@@ -12,25 +19,34 @@ sub main {
 
     getopts('af:c', \%opts);
 
-    # Arguements are placed in the checkusage subroutine
-    if(!checkusage("Hello", 7)){
+    # Arguement is a hash reference
+    if(!checkusage(\%opts)){
         usage();
     }
+
+=pod
+    perl _5-references_to_hashes.pl -f test.xml -a -c
+    Key value pairs:
+        a = 1
+        c = 1
+        f = test.xml
+=cut
+    my $opts_ref = \%opts;
+
+    # Use Hash directly
+    print $opts{'f'} . "\n";
+
+    # Use reference to hash
+    # -> is used to dereference the hash reference. Only used for hash references like \%opts
+    print $opts_ref->{'f'} . "\n";
 }
 
 sub checkusage{
+    # $opts_ref variable is in a different scope than the one in main but 
+    my $opts_ref = shift;
 
-    print Dumper(@_[0]);
+    print $opts_ref->{'f'} . "\n";
 
-    # Easier for single arguements
-    #* my $greeting = shift @_;
-    #* my $number = shift;
-
-    # Place arguements in scalars to identify them
-    # Greate for multiple arguements
-    my ($greeting, $number) = @_;
-    print "$greeting number $number\n";
-    
     return 1;
 }
 
