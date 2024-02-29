@@ -74,10 +74,16 @@ sub process_file {
 	#print Dumper($dom->{"band"});
 
 	my @bands = (keys %{$dom->{"band"}});
-	print Dumper(@bands);
-	#foreach my $band(%{$dom->{"band"}}) {
-		#print $band . "\n";
-	#}
+	for my $band(@bands) {
+		print "Band: $band\n";
+		# print Dumper($dom->{"band"}->{$band});
+		# print Dumper($dom->{"band"}->{$band}->{"members"});
+		# print Dumper($dom->{"band"}->{$band}->{"members"}->{"member"});
+		my @members = @{$dom->{"band"}->{$band}->{"members"}->{"member"}};
+		for my $member(@members) {
+			print "  Member: $member\n";
+		}
+	}
 
 }
 
