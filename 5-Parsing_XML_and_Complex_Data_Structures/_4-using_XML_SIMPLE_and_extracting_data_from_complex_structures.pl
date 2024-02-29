@@ -1,5 +1,7 @@
 =begin notes
+In Perl, Objects are glorified hashes. "Blessed Hash"
 
+dom = document object model
 =end notes
 =cut
 
