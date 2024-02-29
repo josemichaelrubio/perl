@@ -62,14 +62,22 @@ sub process_file {
 	
 	close(INPUTFILE);
 	
-	print $content;
+	#print $content;
 
 	# The XML parser object
 	my $parser = new XML::Simple;
 	# call the subroutine in the $parser object
-	my $dom = $parser->XMLin($content);
+	my $dom = $parser ->XMLin($content);
 
-	
+	#print $content;
+	#print Dumper($dom);
+	#print Dumper($dom->{"band"});
+
+	my @bands = (keys %{$dom->{"band"}});
+	print Dumper(@bands);
+	#foreach my $band(%{$dom->{"band"}}) {
+		#print $band . "\n";
+	#}
 
 }
 
