@@ -62,22 +62,15 @@ sub process_file {
 	
 	close(INPUTFILE);
 	
-	#print $content;
+	print $content;
 
 	# The XML parser object
 	my $parser = new XML::Simple;
 	# call the subroutine in the $parser object
 	my $dom = $parser->XMLin($content);
 
-	#print Dumper($dom);
-	# TODO: 1. Extract the band name
-	# TODO: 2. Extract the members
-	# TODO: 3. Extract the albums
-	# 
-	# @{Cast} it into an array
-	foreach my $band(@{$dom->{"bands"}}) {
-		print Dumper($band->{"bands"});
-	}
+	
+
 }
 
 sub get_files {
